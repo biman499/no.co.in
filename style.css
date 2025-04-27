@@ -1,0 +1,115 @@
+.joke{
+    top: 2.5%;
+    size: 15px;
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    color: rgb(184, 927, 127,100.35);
+    }
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background: url('images/IMG_20231210_120139 - Copy.jpg') no-repeat center center;
+    background-size: cover;
+}
+.banner .slider{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 25%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+.photo-detail {
+    color: #000000; 
+    font-size: 30px; 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    background-color:rgba(216, 197, 235, 0.993) ; /*( 0 ,0 ,0, 0 this is use for transeperancy)*/
+    padding: 10px; 
+    border-radius: 50px; 
+    margin-top: 2.5px; 
+}
+
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-1deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-1deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(750px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    width: 100%;
+    font-size: 8px ;
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 10px 20px #000;
+}
+.banner .content h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16em;
+    line-height: 1.5em;
+    color: #1730d4;
+    position: relative;
+}
+
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 2px;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #abeb61;
+        font-size: 7em;
+    }
+    .banner .content .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 300%;
+        text-align: center;
+        padding: 0 30px;
+    }
